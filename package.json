@@ -1,0 +1,28 @@
+{
+  "name": "js-first-practice",
+  "version": "1.0.0",
+  "description": "My first mini console apps using Node.JS",
+  "main": "calculator-shape.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maya Sopiah Lubis <https://github.com/mayasopiie>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.3.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayasopiie/node-js-first-practice.git"
+  },
+  "keywords": [
+    "javascript",
+    "node.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/mayasopiie/node-js-first-practice/issues"
+  },
+  "homepage": "https://github.com/mayasopiie/node-js-first-practice#readme"
+}
