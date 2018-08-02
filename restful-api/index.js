@@ -1,36 +1,29 @@
-// var axios = require("axios");
-
-// axios("https://swapi.co/api/people")
-//     .then(function (response) {
-//        return response;
-//       })
-//     .then(function(data) {
-//         const peopleArray = data.results;
-//         // peopleArray.forEach(function (person) {
-//         //     console.log(`Name: ${person.name}`);
-//         //     console.log(`Height: ${person.height}`);
-//         //     console.log(`Hair color: ${person.hair_color}`);
-//         //     console.log("-------")
-//         // });
-//         for (var i=0; i < peopleArray.length; i++){
-//             console.log(`Name: ${person.name}`);
-//         }
-//     });
 const axios = require("axios");
+const colors = require("colors");
 
-const API_URL = `https://swapi.co/api/people`;
+const STARWARS_API_URL = `https://swapi.co/api/people`;
 
-axios
-	.get(API_URL)
-	.then(response => {
-		console.log(response);
-    })
-    .then(data => {
-        const peopleArray = data.results;
-        for (var i=0; i < peopleArray.length; i++){
-            console.log(`Name: ${peopleArray.name}`);
-        }
-    })
-	.catch(error => {
-		console.log(error);
-});
+const starWarsCharacters = () => {
+    axios
+        .get(STARWARS_API_URL)
+        .then(response => {
+            const people = response.data.results;
+
+            const template = (name, height, hair_color) => {
+                console.log(colors.yellow.bold.underline.bgCyan(`Name: ${name}`));
+                console.log(colors.yellow.bold.bgCyan(`Height: ${height}`));
+                console.log(colors.yellow.bold.bgCyan(`Hair color: ${hair_color}`));
+                console.log("-------")
+            }
+
+            people.forEach(person => {
+                template(person.name, person.height, person.hair_color);
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+console.log(colors.red.bold("Star Wars Characters"))
+starWarsCharacters();
